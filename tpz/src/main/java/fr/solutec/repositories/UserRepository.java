@@ -1,5 +1,9 @@
 package fr.solutec.repositories;
 
-public interface UserRepository {
+import org.springframework.data.repository.CrudRepository;
+
+import fr.solutec.entities.Utilisateur;
+
+public interface UserRepository extends CrudRepository<Utilisateur, Long>{
 
 }
