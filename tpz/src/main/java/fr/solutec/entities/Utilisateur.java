@@ -18,7 +18,7 @@ public class Utilisateur {
 	@Id
 	@GeneratedValue
 
-	private long id;
+	private Long id;
 	private String prenom;
 	private String nom;
 	private String login;
