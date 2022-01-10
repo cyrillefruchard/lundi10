@@ -1,5 +1,6 @@
 package fr.solutec.entities;
 
-public class utilisateur {
+public class Utilisateur {
+	
 
 }
