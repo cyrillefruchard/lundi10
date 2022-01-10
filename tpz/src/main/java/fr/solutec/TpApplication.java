@@ -7,10 +7,15 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 import fr.solutec.entities.Memo;
 import fr.solutec.entities.Utilisateur;
+import fr.solutec.repositories.MemoRepository;
+import fr.solutec.repositories.UserRepository;
 
 @SpringBootApplication
 public class TpApplication implements CommandLineRunner {
 	@Autowired
+	private MemoRepository memoRepos;
+	@Autowired
+	private UserRepository utilisateurRepos;
 
 	public static void main(String[] args) {
 		SpringApplication.run(TpApplication.class, args);
