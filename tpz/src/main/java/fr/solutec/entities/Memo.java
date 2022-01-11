@@ -15,6 +15,7 @@ public class Memo {
 	@Id @GeneratedValue
 	private Long id;
 	private String contenu;
+	private boolean perso;
 	@ManyToOne
 	private Utilisateur expediteur;
 	@ManyToOne

@@ -32,11 +32,17 @@ public class TpApplication implements CommandLineRunner {
 		utilisateurRepos.save(u1);
 		utilisateurRepos.save(u2);
 
-		Memo m1 = new Memo(null, "Salut ça va", u1, u2);
-		Memo m2 = new Memo(null, "ok nickel", u2, u1);
+		Memo m1 = new Memo(null, "Salut ça va", false, u1, u2);
+		Memo m2 = new Memo(null, "ok nickel", false, u2, u1);
+		Memo m3 = new Memo(null, "Ceci est un mémo public", false, u2, null);
+		Memo m4 = new Memo(null, "Là aussi", false, u2, null);
+		Memo m5 = new Memo(null, "Mémo personel", true, u2, null);
 		
 		memoRepos.save(m1);
 		memoRepos.save(m2);
+		memoRepos.save(m3);
+		memoRepos.save(m4);
+		memoRepos.save(m5);
 
 	}
 
