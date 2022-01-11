@@ -38,25 +38,26 @@ public class TpApplication implements CommandLineRunner {
 
 		utilisateurRepos.save(u1);
 		utilisateurRepos.save(u2);
-		Date currdate = new Date();
 
-		Memo m1 = new Memo(null, currdate, "Salut ça va", false, u1, u2);
-		Memo m2 = new Memo(null, currdate, "ok nickel", false, u2, u1);
-		Memo m3 = new Memo(null, currdate, "Ceci est un mémo public", false, u2, null);
-		Memo m4 = new Memo(null, currdate, "Là aussi", false, u2, null);
-		Memo m5 = new Memo(null, currdate, "Mémo personel", true, u2, null);
+		String format = "dd-MM-yyyy hh:mm";
+		SimpleDateFormat simpleDateFormat = new SimpleDateFormat(format);
+		Date d1 = simpleDateFormat.parse("29-01-2022 14:30");
+		Date d2 = simpleDateFormat.parse("13-02-2022 10:00");
+		Date d3 = simpleDateFormat.parse("21-02-2022 21:41");
+		Date d4 = simpleDateFormat.parse("27-03-2022 23:45");
+		Date d5 = simpleDateFormat.parse("28-02-2022 20:48");
+
+		Memo m1 = new Memo(null, d1, "Salut ça va", false, u1, u2);
+		Memo m2 = new Memo(null, d4, "ok nickel", false, u2, u1);
+		Memo m3 = new Memo(null, d5, "Ceci est un mémo public", false, u2, null);
+		Memo m4 = new Memo(null, d4, "Là aussi", false, u2, null);
+		Memo m5 = new Memo(null, d3, "Mémo personel", true, u2, null);
 
 		memoRepos.save(m1);
 		memoRepos.save(m2);
 		memoRepos.save(m3);
 		memoRepos.save(m4);
 		memoRepos.save(m5);
-
-		String format = "dd-MM-yyyy hh:mm";
-		SimpleDateFormat simpleDateFormat = new SimpleDateFormat(format);
-		Date d1 = simpleDateFormat.parse("29-01-2022 14:30");
-		Date d2 = simpleDateFormat.parse("13-02-2022 10:00");
-		Date d3 = simpleDateFormat.parse("27-02-2022 20:45");
 
 		Event e1 = new Event(null, "Running", "Départ à la grande place et arrivée au parc", d1, u2);
 		Event e2 = new Event(null, "Football", "11v11 au stade", d2, u2);
@@ -65,7 +66,7 @@ public class TpApplication implements CommandLineRunner {
 		eventRepos.save(e1);
 		eventRepos.save(e2);
 		eventRepos.save(e3);
-		
+
 	}
 
 }
