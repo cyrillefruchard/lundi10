@@ -1,5 +1,6 @@
 package fr.solutec;
 
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -7,8 +8,10 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
+import fr.solutec.entities.Event;
 import fr.solutec.entities.Memo;
 import fr.solutec.entities.Utilisateur;
+import fr.solutec.repositories.EventRepository;
 import fr.solutec.repositories.MemoRepository;
 import fr.solutec.repositories.UserRepository;
 
@@ -18,6 +21,8 @@ public class TpApplication implements CommandLineRunner {
 	private MemoRepository memoRepos;
 	@Autowired
 	private UserRepository utilisateurRepos;
+	@Autowired
+	private EventRepository eventRepos;
 
 	public static void main(String[] args) {
 		SpringApplication.run(TpApplication.class, args);
@@ -47,6 +52,20 @@ public class TpApplication implements CommandLineRunner {
 		memoRepos.save(m4);
 		memoRepos.save(m5);
 
+		String format = "dd-MM-yyyy hh:mm";
+		SimpleDateFormat simpleDateFormat = new SimpleDateFormat(format);
+		Date d1 = simpleDateFormat.parse("29-01-2022 14:30");
+		Date d2 = simpleDateFormat.parse("13-02-2022 10:00");
+		Date d3 = simpleDateFormat.parse("27-02-2022 20:45");
+
+		Event e1 = new Event(null, "Running", "Départ à la grande place et arrivée au parc", d1, u2);
+		Event e2 = new Event(null, "Football", "11v11 au stade", d2, u2);
+		Event e3 = new Event(null, "Cinéma", "Ne soyez pas en retard svp", d1, u1);
+
+		eventRepos.save(e1);
+		eventRepos.save(e2);
+		eventRepos.save(e3);
+		
 	}
 
 }
