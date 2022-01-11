@@ -4,6 +4,7 @@ import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -36,6 +37,17 @@ public class MemoRest {
 	@PostMapping("memo")
 	public Memo savePublicMemo(@RequestBody Memo m) {
 		return memoRepo.save(m);
+	}
+	
+	@DeleteMapping("memo/{id}")
+	public boolean deleteMemo(@PathVariable Long id) {
+		Optional<Memo> m = memoRepo.findById(id);
+		if(m.isPresent()) {
+			memoRepo.deleteById(id);
+			return true;
+		} else {
+			return false;
+		}
 	}
 	
 }
