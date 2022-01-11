@@ -28,9 +28,15 @@ public class TpApplication implements CommandLineRunner {
 
 		Utilisateur u1 = new Utilisateur(null, "Marc", "Dupondt", "Marco", "azertyuiop");
 		Utilisateur u2 = new Utilisateur(null, "James", "Dupondt", "Thor", "aa");
+		
+		utilisateurRepos.save(u1);
+		utilisateurRepos.save(u2);
 
 		Memo m1 = new Memo(null, "Salut ça va", u1, u2);
 		Memo m2 = new Memo(null, "ok nickel", u2, u1);
+		
+		memoRepos.save(m1);
+		memoRepos.save(m2);
 
 	}
 
