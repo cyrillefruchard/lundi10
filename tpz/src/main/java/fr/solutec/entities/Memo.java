@@ -1,5 +1,7 @@
 package fr.solutec.entities;
 
+import java.util.Date;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -10,10 +12,14 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Entity
-@NoArgsConstructor @AllArgsConstructor @Data
+@NoArgsConstructor
+@AllArgsConstructor
+@Data
 public class Memo {
-	@Id @GeneratedValue
+	@Id
+	@GeneratedValue
 	private Long id;
+	private Date datecreation;
 	private String contenu;
 	private boolean perso;
 	@ManyToOne

@@ -1,5 +1,7 @@
 package fr.solutec;
 
+import java.util.Date;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
@@ -28,16 +30,17 @@ public class TpApplication implements CommandLineRunner {
 
 		Utilisateur u1 = new Utilisateur(null, "Marc", "Dupondt", "Marco", "azertyuiop");
 		Utilisateur u2 = new Utilisateur(null, "James", "Dupondt", "Thor", "aa");
-		
+
 		utilisateurRepos.save(u1);
 		utilisateurRepos.save(u2);
+		Date currdate = new Date();
 
-		Memo m1 = new Memo(null, "Salut ça va", false, u1, u2);
-		Memo m2 = new Memo(null, "ok nickel", false, u2, u1);
-		Memo m3 = new Memo(null, "Ceci est un mémo public", false, u2, null);
-		Memo m4 = new Memo(null, "Là aussi", false, u2, null);
-		Memo m5 = new Memo(null, "Mémo personel", true, u2, null);
-		
+		Memo m1 = new Memo(null, currdate, "Salut ça va", false, u1, u2);
+		Memo m2 = new Memo(null, currdate, "ok nickel", false, u2, u1);
+		Memo m3 = new Memo(null, currdate, "Ceci est un mémo public", false, u2, null);
+		Memo m4 = new Memo(null, currdate, "Là aussi", false, u2, null);
+		Memo m5 = new Memo(null, currdate, "Mémo personel", true, u2, null);
+
 		memoRepos.save(m1);
 		memoRepos.save(m2);
 		memoRepos.save(m3);
